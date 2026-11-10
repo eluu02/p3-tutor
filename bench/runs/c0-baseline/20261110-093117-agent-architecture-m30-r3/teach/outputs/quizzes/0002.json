@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's program sends only the student's newest message to the model on each call, with no earlier messages. The student writes \"Book it for Friday\" right after asking about the vinyl cutter. What happens?",
+      "options": [
+        {"id": "a", "text": "The model recalls the vinyl cutter question from its own earlier calls"},
+        {"id": "b", "text": "The model cannot tell what \"it\" is, since it only sees this message"},
+        {"id": "c", "text": "The model searches the saved notes to find the vinyl cutter question"},
+        {"id": "d", "text": "The model books the vinyl cutter because it is the most common machine"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A run makes three model calls. Call 1 sends 900 tokens. A tool request (60 tokens) and its result (500 tokens) are appended before call 2. A second tool request (60 tokens) and its result (1,000 tokens) are appended before call 3. The model's own outputs are the tool requests only. How many tokens were sent in across the three calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Sam finishes laser cutter training on Wednesday and chats with the assistant that day. On Thursday a new session starts and the assistant treats Sam as untrained. Which design change fixes this most directly?",
+      "options": [
+        {"id": "a", "text": "Save Sam's training status when it changes and read it in at session start"},
+        {"id": "b", "text": "Switch to a model with a context window ten times larger than before"},
+        {"id": "c", "text": "Tell the system prompt to try harder to remember earlier conversations"},
+        {"id": "d", "text": "Let each session start with the previous full transcript removed"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, why is it better for search_manuals to return the few best chunks of a manual than to put the whole 200-page manual into the context?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which fact should the assistant NOT keep as a saved note between sessions, but fetch with a tool each time it is needed?",
+      "options": [
+        {"id": "a", "text": "A student's preference for morning booking slots"},
+        {"id": "b", "text": "Which machines a student has completed training on"},
+        {"id": "c", "text": "Whether the soldering station is free at 4 pm today"},
+        {"id": "d", "text": "The student's name as they asked to be addressed"}
+      ]
+    }
+  ]
+}

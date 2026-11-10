@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant is working on one request and is about to make its third model call. The program has run two tools so far. What does the model see in this third call?",
+      "options": [
+        {"id": "a", "text": "Only the newest tool result, since older results were already used"},
+        {"id": "b", "text": "Only the system prompt and the student's first question again"},
+        {"id": "c", "text": "The whole history so far: question, both tool requests and results"},
+        {"id": "d", "text": "A private summary that the model itself kept inside its memory"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A request makes three model calls. The system prompt, tool descriptions and question total 1,000 tokens. After call 1 the program adds 700 tokens (a tool request and its result), and after call 2 it adds another 700 tokens. Each call is sent the whole history. Ignoring the model's output, how many input tokens are sent across the three calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which of these is the best fit for a saved per-student note, rather than for retrieval from the manuals or a live tool call?",
+      "options": [
+        {"id": "a", "text": "A student mentioned they are left-handed and want mirrored jigs"},
+        {"id": "b", "text": "The step-by-step setup procedure from the laser cutter manual"},
+        {"id": "c", "text": "Whether the soldering station is booked at 4 pm today"},
+        {"id": "d", "text": "The wording of the makerspace's general safety rules"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, why is retrieving a few relevant chunks of a 200-page manual usually better than putting the whole manual into the context of every request?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A teammate suggests a model with a much larger context window so the assistant will remember each student between visits. Why does this not solve the problem by itself?",
+      "options": [
+        {"id": "a", "text": "Larger windows only change how long the model's replies can be"},
+        {"id": "b", "text": "Larger windows make the model forget the start of each chat"},
+        {"id": "c", "text": "Larger windows cannot hold text that came from a saved file"},
+        {"id": "d", "text": "A window covers one call, and a new session starts empty"}
+      ]
+    }
+  ]
+}

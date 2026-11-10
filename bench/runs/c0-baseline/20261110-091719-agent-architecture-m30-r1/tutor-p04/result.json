@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 19850,
+  "stop_reason": "end_turn",
+  "session_id": "8221836c-8aee-41a5-9f74-717a4dc9dbe4",
+  "total_cost_usd": 0.1164965,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23159,
+    "cache_read_input_tokens": 65485,
+    "output_tokens": 1730,
+    "output_tokens_details": {
+      "thinking_tokens": 345
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23159,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 542,
+        "cache_read_input_tokens": 33154,
+        "cache_creation_input_tokens": 641,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 641
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1730,
+      "cacheReadInputTokens": 65485,
+      "cacheCreationInputTokens": 23159,
+      "webSearchRequests": 0,
+      "costUSD": 0.1164965,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23159,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither. The premise isn't right: more agents don't always give better results, and for your budget they often give worse ones.\n\nEvery agent you add has to be given its context, and it hands its result to the next one. That costs tokens, and money, on each hand-off. Information also gets lost at each hand-off. Anthropic's write-up on its multi-agent research system reports that agents use several times the tokens of a plain chat, and multi-agent setups many times more. Treat those figures as rough, because they come from a research workload, not a makerspace. The same write-up says extra agents pay off when the work splits into independent pieces that can run in parallel.\n\nTry your assistant on one request: \"Can I use the laser cutter Thursday at 2? What settings for 3 mm acrylic?\"\n\n- **Calendar check:** a fixed lookup.\n- **Manual search:** a retrieval step.\n- **Booking:** a tool call.\n- **The reply:** one answer that needs all of the above.\n\nThese steps depend on each other and share the same conversation, so splitting them across five or ten agents mostly adds copying and cost. A single agent with three well-described tools, or a fixed workflow for the predictable parts, probably covers it.\n\nAsk the question the other way round. What work is independent enough that a second agent would help? For this assistant, probably none yet. If you find some, add agents one at a time and compare cost and answer quality against the single-agent version.\n\nThis is the \"when splitting pays off and when it doesn't\" skill from your mission, and I can teach it as a lesson on workflows versus agents versus multi-agent systems. Before then: for the laser cutter request, which steps need the previous step's result, and which could run at the same time?",
+  "ttft_ms": 1668,
+  "type": "result",
+  "duration_ms": 19986,
+  "uuid": "43625d08-81b6-4d9a-92f7-3cc26bf2a74f",
+  "ttft_stream_ms": 1043,
+  "time_to_request_ms": 83,
+  "first_content_frame_ms": 1043,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1730,
+      "cacheReadInputTokens": 65485,
+      "cacheCreationInputTokens": 23159,
+      "webSearchRequests": 0,
+      "costUSD": 0.1164965,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23159,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "duration_api_ms": 193726,
+  "stop_reason": "end_turn",
+  "session_id": "d6ed0b1e-ffd3-4c0e-8616-36b69c16323b",
+  "total_cost_usd": 0.5613294,
+  "usage": {
+    "input_tokens": 22,
+    "cache_creation_input_tokens": 63840,
+    "cache_read_input_tokens": 462024,
+    "output_tokens": 22390,
+    "output_tokens_details": {
+      "thinking_tokens": 2345
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 63840,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 639,
+        "cache_read_input_tokens": 71754,
+        "cache_creation_input_tokens": 2722,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2722
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 22390,
+      "cacheReadInputTokens": 462024,
+      "cacheCreationInputTokens": 63840,
+      "webSearchRequests": 0,
+      "costUSD": 0.5255063999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 63840,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42445,
+      "outputTokens": 3157,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.035823,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1224,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 26,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on context and memory (objective O3) is written, with a quiz and a cheat sheet. I haven't opened the lesson in a browser or counted its words. I estimate about 3,500, inside the 2,700–6,750 range that FORMATS.md counts as a fit for 30 minutes. I also never fetched the sources, so the lesson's claims rest on the search results and snippets I saw, not the full pages.\n\n**Lesson:** `lessons/0001-context-and-memory-in-an-agent.html`. It starts from the makerspace assistant and has three figures and four self-checking questions. It covers:\n- **Context window:** what the model sees on one call, and why you pay for it again on every call.\n- **Between steps:** the context grows on each call. It also covers compaction, notes and keeping tool results small.\n- **Between sessions:** the model keeps nothing, so memory means saved notes that your program loads back. There is a table of what goes where.\n- **Retrieval:** chunks, keyword search versus embedding search, and having the program search up front versus giving the model a search tool.\n- **Worked example:** counting input tokens across one request (9,300 tokens). In the faded exercise, a bloated tool result nearly doubles that.\n\n**Quiz:** `quizzes/0002.json` has five items and its key is `keys/0002.json`. Ask me when you want to take it.\n\n**Also written:**\n- `cheatsheets/context-and-memory.html`\n- `RESOURCES.md`, which is new; the community section is empty because I haven't vetted a community for agent builders yet.\n- `NOTES.md`, which now records the new misconception ids M7–M9 and notes that quiz 0002 is untaken.\n\nQuiz 0001 is still ungraded; say the word and I'll grade both attempts.\n\nQuestion for you: do you want to name a community for agent builders (a class, a club or a forum)? I'd rather you pick one than have me guess.",
+  "ttft_ms": 12354,
+  "type": "result",
+  "duration_ms": 181020,
+  "uuid": "10d1940d-e881-4922-b562-64a6f803d26b",
+  "ttft_stream_ms": 11635,
+  "time_to_request_ms": 96,
+  "first_content_frame_ms": 11635,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 22,
+      "outputTokens": 22390,
+      "cacheReadInputTokens": 462024,
+      "cacheCreationInputTokens": 63840,
+      "webSearchRequests": 0,
+      "costUSD": 0.5255063999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 63840,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42445,
+      "outputTokens": 3157,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.035823,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1224,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

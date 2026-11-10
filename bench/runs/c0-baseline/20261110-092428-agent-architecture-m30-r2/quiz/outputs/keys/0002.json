@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow: in a workflow, code written in advance decides the steps and their order; in an agent, the model decides its next step and which tool to use. Both can use tools and several model calls (a, b), and human approval (d) is a separate matter."
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The code decides every step and the order (search, build prompt, one call), so this is a workflow. The model writing the answer (b) or the use of a tool (c) does not make it an agent, because the model never chooses the next step. The number of model calls (d) is not the test: a workflow may use many calls and an agent may use one before it finishes."
+    },
+    {
+      "id": "q3",
+      "answer": "the model",
+      "accepted": ["model", "the model decides", "the llm", "llm", "the language model", "language model"],
+      "rationale": "In an agent the model owns the control flow: it chooses the next action, and the code around it only runs the action and returns the result. Answering the code describes a workflow."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "When the steps are known and always the same, a fixed workflow is the better choice: it is predictable, cheaper and easier to test. An agent would add cost and the chance of a wrong order for no gain. Variety of requests (c) is the reason to prefer an agent, which does not apply here, and using tools (b) does not require a model to choose them."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "An agent decides as it goes and may loop, retry or call tools it did not need, so it usually takes more model calls, tokens and time than a fixed workflow that does the same simple job. That cost is worth paying only when the flexibility is needed."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "When the number and order of steps depend on what earlier steps return and cannot be listed in advance, the model has to own the control flow, so an agent fits. Running every tool every time (a) wastes budget, and one path per question type (b) fails on cases such as the manual that points to another manual. Agents are not always better (d); the choice depends on whether the steps can be fixed in advance."
+    }
+  ]
+}

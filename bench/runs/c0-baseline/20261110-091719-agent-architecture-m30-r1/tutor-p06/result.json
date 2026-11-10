@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 22177,
+  "stop_reason": "end_turn",
+  "session_id": "0f89b843-bc8d-4f4a-9264-476bccc94d9f",
+  "total_cost_usd": 0.1171714,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23137,
+    "cache_read_input_tokens": 65414,
+    "output_tokens": 1807,
+    "output_tokens_details": {
+      "thinking_tokens": 356
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23137,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 637,
+        "cache_read_input_tokens": 33086,
+        "cache_creation_input_tokens": 687,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 687
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1807,
+      "cacheReadInputTokens": 65414,
+      "cacheCreationInputTokens": 23137,
+      "webSearchRequests": 0,
+      "costUSD": 0.1171714,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 356,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23137,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a fresh angle: a **front-desk worker who can't leave the desk**.\n\nPicture a student worker at the makerspace desk. They're good at talking and reading, but they're chained to the desk with a notepad. They can't walk to the calendar room or open the booking system themselves. Next to them is a **runner**, who does whatever a written slip says.\n\nA student asks, \"Is the laser cutter free Thursday at 3?\"\n\n1. The worker can't know that from memory, so they write a slip: *\"Check the laser cutter's calendar, Thursday 3pm.\"*\n2. The runner reads the slip, goes and looks, and comes back with a note: *\"Booked 3–4, free from 4.\"*\n3. The worker reads the note and answers the student: \"It's taken at 3, but 4pm is open. Want me to book it?\"\n\nThat's tool calling. The model is the worker: it never touches the calendar. It only **writes a request** in a set format. Your program is the runner: it does the real action and hands back the result as new text. The model then reads that result and decides what to do next. Repeating that cycle until the worker can answer is the agent loop you already know.\n\nTwo more pieces fit the same picture:\n- **The tool description is the menu taped to the desk.** It lists the slips the worker is allowed to write and what each one does. The worker picks a slip only from what the menu says, so a vague menu leads to wrong slips.\n- **The runner is just a runner.** If the worker writes a nonsense slip (\"check the calendar for Blursday\"), the runner still tries. Your code decides what a slip is allowed to do.\n\nWhere the analogy breaks: a human worker could get up and look for themselves. The model genuinely can't. Without a runner, it can only write text.\n\nQuick check, in your own words: in the Thursday example, who actually looks at the calendar, and what does the model do once the result comes back?\n\nIf this lands, I can turn it into a short lesson on writing a tool description for your booking tool.",
+  "ttft_ms": 4268,
+  "type": "result",
+  "duration_ms": 22316,
+  "uuid": "e35f913f-8738-4d42-89dc-b34fc2b72704",
+  "ttft_stream_ms": 3439,
+  "time_to_request_ms": 80,
+  "first_content_frame_ms": 3440,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1807,
+      "cacheReadInputTokens": 65414,
+      "cacheCreationInputTokens": 23137,
+      "webSearchRequests": 0,
+      "costUSD": 0.1171714,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 356,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23137,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

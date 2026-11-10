@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes it an agent is the loop: the model picks an action, the program runs it, and the result comes back. A longer prompt or a bigger model changes what one call can do, not the structure of the system."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only writes a request: the tool name plus arguments (laser cutter, tomorrow's date). The program around it runs check_calendar. This is the key fact for your design, because it means you control what actually executes."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'left to run longer, it will eventually fix the bug'. That is tempting, but the agent is repeating the same edit and getting the same failing test, so more steps just repeat the same failure and cost money. The fix is in the program: a step limit that ends the loop and reports what happened so a person can step in. Your budget makes this matter even more, since every extra step is a paid model call."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "4 is correct: three tool requests plus the final answer is four model calls. The reasoning is off, though. You wrote that the model 'runs' the tools itself. It doesn't: each call ends with a request for one tool, the program runs it, and the result goes into the next call. Count it as one model call per input it receives: the question and the three results."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you gave both parts: the result goes back in as the next input, and the model then uses it to decide what to do next. Your group-chat analogy works: each reply is added to the thread the model reads before it takes its turn."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, but not the whole. The model is sent a description of each tool: its name, what it does and the parameters it takes, and it picks the one whose description fits the request. A name alone can mislead: 'check_calendar' doesn't say whether it books or only reads. This is why the tool descriptions you write for the makerspace assistant matter so much."
+    }
+  ],
+  "summary": "You have the loop down: what makes an agent, what the model outputs for a tool call, and what happens to a tool's result. Two things to fix. First, the model never runs a tool: it writes a request and the program runs it (this slipped back into your q4 reasoning). Second, an agent needs a stopping condition such as a step limit, because it will not necessarily get itself unstuck. Next step: write a short description (name, purpose, parameters) for check_calendar and say how the model would use it, then we move on to context and memory."
+}

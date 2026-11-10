@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 23701,
+  "stop_reason": "end_turn",
+  "session_id": "ffa984cd-8e83-444e-9d06-bc420dc18b90",
+  "total_cost_usd": 0.12142810000000001,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23440,
+    "cache_read_input_tokens": 65561,
+    "output_tokens": 2110,
+    "output_tokens_details": {
+      "thinking_tokens": 534
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23440,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 697,
+        "cache_read_input_tokens": 33173,
+        "cache_creation_input_tokens": 903,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 903
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2110,
+      "cacheReadInputTokens": 65561,
+      "cacheCreationInputTokens": 23440,
+      "webSearchRequests": 0,
+      "costUSD": 0.12142810000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 534,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23440,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's the short version of PPO. A full derivation needs policy-gradient math you haven't seen yet, so this leaves out the steps in the middle.\n\n**The idea.** Say the model tries 100 tool calls and a reward scores each one, for example +1 if the booking was made correctly. RL nudges the model toward the calls that scored above average. The trouble is that one big nudge can wreck the model. PPO (Proximal Policy Optimization) limits how far each update can move it.\n\n**The objective.** For each action, let r = (new model's probability of that action) ÷ (old model's probability). Let A be the advantage, meaning how much better the action did than expected. PPO maximizes:\n\nL = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ]\n\nThe clip stops r from drifting more than about ε (often 0.2) from 1. Once an action's probability has moved that much, pushing further earns nothing. That is the \"proximal\" part. The derivation starts from the policy-gradient theorem, swaps in r to reuse old samples, then adds the clip. The original paper is Schulman et al. 2017, \"Proximal Policy Optimization Algorithms\" (arXiv 1707.06347). I'm giving the formula from memory, so check it there.\n\n**For your assistant, I wouldn't do this.** Actually running it needs a model whose weights you control, GPUs, a reward function, and thousands of logged episodes. That's a poor fit for a small budget and a five-week deadline. Most tool-calling failures in a system like yours come from vague tool descriptions, bad argument schemas, or missing examples. Fixing those costs almost nothing. You can measure the gain by writing 20–30 real student questions and checking whether the right tool is called with the right arguments.\n\nTraining is also outside your mission, so I'd rather spend your three hours on the parts you'll defend at the design review. Do you want a lesson on writing tool descriptions and testing them? Your quiz 0001 attempts are also still ungraded, and I can do that first.\n\nQuick check: why is \"booked correctly\" a harder reward to define than it sounds?",
+  "ttft_ms": 2316,
+  "type": "result",
+  "duration_ms": 23854,
+  "uuid": "8943bedb-d2ff-431e-81ae-04a386d15c3c",
+  "ttft_stream_ms": 2314,
+  "time_to_request_ms": 88,
+  "first_content_frame_ms": 2315,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2110,
+      "cacheReadInputTokens": 65561,
+      "cacheCreationInputTokens": 23440,
+      "webSearchRequests": 0,
+      "costUSD": 0.12142810000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 534,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23440,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; it only reads the context it is sent, so with only the newest message it cannot resolve \"it\". Option a shows the misconception that the model remembers earlier calls by itself (M7); option c assumes notes are searched without the program doing it.",
+      "distractors": {"a": "M7", "c": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": 4880,
+      "tolerance": 0.5,
+      "rationale": "Call 1: 900. Call 2: 900 + 60 + 500 = 1,460. Call 3: 1,460 + 60 + 1,000 = 2,520. Total 900 + 1,460 + 2,520 = 4,880. Answering 2,520 counts only the last call, and 2,520 minus nothing summed once counts each text once; the transcript is re-sent in full on each call."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Information must be written to storage outside the model and read back into the next session's context. A larger window or a firmer prompt does not carry anything between sessions (M8 for option b).",
+      "distractors": {"b": "M8", "c": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "Only a few chunks are relevant, and everything in the context is paid for on every call and can crowd out attention, so a small relevant set is cheaper and works better.",
+      "accepted": [
+        "it costs fewer tokens and keeps the context focused on what is relevant",
+        "the whole manual would be re-sent and paid for on every call and dilute attention"
+      ],
+      "rationale": "Full credit needs the cost or attention reason. Saying the manual does not fit is partial at best: a large window might hold it, but sending it is still wasteful (M8)."
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "Availability changes hourly, so a saved copy goes stale; it should be fetched from the booking system by a tool each time. The other facts are stable and per-student, so they suit notes (though training status may also be better read from the official record)."
+    }
+  ]
+}

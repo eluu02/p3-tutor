@@ -1,0 +1,33 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A window ends with the session, so only a saved record that the program loads at the start can carry the preference over. A larger window (a), an instruction (c) or a held-open session (d) does not save anything."
+    },
+    {
+      "id": "q2",
+      "answer": 3600,
+      "tolerance": 0.5,
+      "rationale": "Call 1 reads 1,000; call 2 reads 1,200; call 3 reads 1,400. The total is 3,600. An answer of 1,600 counts the setup once plus the history and misses that the setup and history are resent on each call."
+    },
+    {
+      "id": "q3",
+      "answer": "Its tokens are resent and paid for on every later call, not just when it arrives.",
+      "accepted": ["it is reread on every later call", "it stays in the context and is read again each call", "the result stays in the history and is resent on every call", "because it is in the window for every later call"],
+      "rationale": "The model keeps nothing between calls, so the program resends the history, including the big tool result, each time."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "Retrieval puts only the relevant passages in the window. Pasting everything (a) is costly and invites context rot; retraining (b) is out of scope and does not suit changing manuals; making students paste pages (d) defeats the assistant."
+    },
+    {
+      "id": "q5",
+      "answer": "The model could record a wrong or false claim, and a safety decision must rely on a trusted record.",
+      "accepted": ["a student could be wrong or lie and the model would save it", "it is a safety record that must be trusted", "the model might guess or misremember", "it must come from a trusted source"],
+      "rationale": "Anything the model writes comes from unverified chat text or its own guess; safety-relevant facts need a trusted source."
+    }
+  ]
+}

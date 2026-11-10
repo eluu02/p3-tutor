@@ -1,0 +1,62 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows or agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Two systems both call a language model and both use tools. What is the difference that makes one a workflow and the other an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow never calls tools, but an agent always does"},
+        {"id": "b", "text": "In a workflow, code fixes the steps; in an agent, the model chooses them"},
+        {"id": "c", "text": "A workflow uses a small model, but an agent needs a large one"},
+        {"id": "d", "text": "In a workflow, the model chooses the steps; in an agent, code fixes them"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A makerspace assistant handles every manual question the same way. Its code first searches the manuals, then makes one model call that writes an answer from the pages found, then returns that answer. The model never decides what happens next. How should this system be described?",
+      "options": [
+        {"id": "a", "text": "An agent, because it calls a model and searches the manuals"},
+        {"id": "b", "text": "An agent, because it answers questions in natural language"},
+        {"id": "c", "text": "A workflow, because the model picks the order of the steps"},
+        {"id": "d", "text": "A workflow, because the code fixes the order of the steps"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Booking a machine always takes the same steps in the same order: check the calendar for the slot, confirm with the student, write the booking, send the confirmation. Should this part of the assistant be a fixed workflow or an agent? Answer with one word."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which makerspace request is the strongest case for letting the model choose its own steps, rather than using a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "\"My print keeps failing and I don't know why; help me work it out\""},
+        {"id": "b", "text": "\"Book the laser cutter for Friday at 2 pm\""},
+        {"id": "c", "text": "\"What is the maximum material thickness for the laser cutter?\""},
+        {"id": "d", "text": "\"Send me a booking confirmation for my 2 pm slot\""}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Each model call costs about $0.01. A fixed workflow for booking makes exactly 2 model calls per request. An agent doing the same job averages 6 model calls per request, because each tool result goes back to the model for another call. For 500 booking requests, how many more dollars does the agent cost than the workflow?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one design, a model call labels each incoming message \"manual question\" or \"booking request\", and then the program runs the matching fixed pipeline for that label. Who owns the control flow here, the code or the model? Answer with one word or phrase."
+    }
+  ]
+}

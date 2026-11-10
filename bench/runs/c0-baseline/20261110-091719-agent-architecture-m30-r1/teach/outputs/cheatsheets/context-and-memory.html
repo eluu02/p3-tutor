@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+<h2>Terms</h2>
+<ul>
+  <li><strong>Context:</strong> all text sent to the model on one call. <strong>Context window:</strong> the limit on its size, in tokens.</li>
+  <li><strong>Memory:</strong> information saved outside the model and loaded back into a later context.</li>
+  <li><strong>Retrieval:</strong> searching stored chunks and putting only the best into the context.</li>
+  <li><strong>Compaction:</strong> summarizing a long history to continue with less text.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing between calls; the program re-sends the history.</li>
+  <li>Input tokens for a request = sum of every call's whole context, so growth compounds.</li>
+  <li>Keep tool results small; they are re-sent on every later call.</li>
+  <li>Save short, stable, dated facts; do not save transcripts or fast-changing data.</li>
+  <li>Keyword search finds exact words; embedding search finds similar meaning; combine them.</li>
+</ul>
+<h2>Where does it go?</h2>
+<table>
+  <thead><tr><th>Information</th><th>Home</th></tr></thead>
+  <tbody>
+    <tr><td>This request's steps and results</td><td>Context</td></tr>
+    <tr><td>Training status, preferences</td><td>Saved notes</td></tr>
+    <tr><td>Machine manuals</td><td>Searchable store, retrieved in chunks</td></tr>
+    <tr><td>Calendar availability</td><td>Live tool call</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

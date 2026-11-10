@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow: in a workflow, predefined code decides the steps; in an agent, the model decides its next step and tool use as it goes. Both can use tools (a), and model size (c) is unrelated. Option d reverses the definition."
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The code fixes the order of the steps and the model only fills one step, so this is a workflow. Calling a model, using a search tool or writing natural language (a, b) does not make a system an agent; the model must direct the steps. Option c states the opposite of what the stem says."
+    },
+    {
+      "id": "q3",
+      "answer": "workflow",
+      "accepted": ["a workflow", "fixed workflow", "a fixed workflow", "workflow."],
+      "rationale": "The steps are known in advance and never change, so a fixed workflow is predictable, cheaper and faster, and there is nothing for a model to decide. Answering agent adds cost and risk for no benefit."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Diagnosing a failing print is open-ended: the steps cannot be listed in advance because each finding decides what to check next, which is where model-directed control flow pays off. The other requests have a known sequence or a single lookup, so a fixed workflow handles them more cheaply and predictably."
+    },
+    {
+      "id": "q5",
+      "answer": 20,
+      "tolerance": 0.01,
+      "rationale": "The difference is 6 - 2 = 4 calls per request. 4 calls x $0.01 = $0.04 per request, and 500 requests x $0.04 = $20. An answer of 30 or 10 means the workflow's or agent's total was computed alone rather than the difference."
+    },
+    {
+      "id": "q6",
+      "answer": "the code",
+      "accepted": ["code", "the program", "program", "the code owns it", "code owns the control flow"],
+      "rationale": "The model's label is only an input; the program decides which fixed pipeline runs next, and the model cannot choose any other steps. This is a routing workflow. An answer of the model confuses using a model for a decision with the model owning the whole control flow."
+    }
+  ]
+}

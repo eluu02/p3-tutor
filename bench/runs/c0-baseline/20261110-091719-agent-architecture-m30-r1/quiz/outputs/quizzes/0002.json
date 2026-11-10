@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "In the makerspace assistant, a Python function always does the same three things in order: it searches the manual for passages that match the question, it gives the passages and the question to the model in one call, and it returns the model's reply. Who decides the order of these steps?",
+      "options": [
+        {"id": "a", "text": "The model, because it writes the final reply"},
+        {"id": "b", "text": "The code, because the order is fixed in advance"},
+        {"id": "c", "text": "The student, because their question starts the run"},
+        {"id": "d", "text": "The model and code share it, because both take part"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these systems is an agent rather than a workflow?",
+      "options": [
+        {"id": "a", "text": "Code checks the calendar, books the slot, then asks a model to write the confirmation email"},
+        {"id": "b", "text": "Code sends a model a classification prompt, then sends the question to one of two fixed prompts"},
+        {"id": "c", "text": "Code gives a model a goal and booking tools, and the model picks each next tool and when to stop"},
+        {"id": "d", "text": "Code retrieves manual passages, asks a model to draft an answer, then asks a model to check the draft"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student has chosen a time slot and pressed Confirm. The steps are always the same: check the slot is still free, create the booking, send a confirmation. Which design is the better choice, and why?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow, because the steps never vary, so code can run them cheaply and predictably"},
+        {"id": "b", "text": "An agent, because changing the calendar is important and needs the model's judgment at each step"},
+        {"id": "c", "text": "An agent, because a model choosing its own steps is always more flexible and so always better"},
+        {"id": "d", "text": "A fixed workflow, because a workflow cannot include any model call and so cannot make a mistake"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "When the steps of a task are known in advance, give one reason a fixed workflow usually costs less per request than an agent doing the same task."
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A teammate says: \"Our assistant calls the model three times for every question, so it is an agent.\" In one or two sentences, say what this test leaves out and what actually decides whether a system is a workflow or an agent."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team wants one part of the assistant to be an agent. Which task fits an agent best?",
+      "options": [
+        {"id": "a", "text": "Turning a typed time such as \"Friday 2pm\" into a calendar date"},
+        {"id": "b", "text": "Sending every student a reminder 24 hours before a booking"},
+        {"id": "c", "text": "Looking up a machine's opening hours in a fixed table"},
+        {"id": "d", "text": "Working out why a student's prints keep failing, using manuals, bookings and repair notes"}
+      ]
+    }
+  ]
+}

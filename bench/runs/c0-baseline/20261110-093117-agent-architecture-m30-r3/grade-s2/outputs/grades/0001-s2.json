@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The loop is what makes it an agent: the model picks an action, the program runs it, and the result comes back. A longer prompt or a bigger context window only changes what one call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only writes a structured request: the tool's name plus its arguments, here the laser cutter and tomorrow's date. The program around it does the actual calendar lookup."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'left to run longer, it will eventually fix the bug'. It is tempting because more steps usually mean more progress. Here the agent has repeated the same edit and seen the same failure 40 times, so step 41 will be identical to step 40. The fix is a stopping condition: a step limit that ends the loop and hands the problem to a person. The context window is not the issue, because all 40 steps already fit."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right: three tool requests plus the final answer. Your reason is off, though. You wrote that the model 'runs' the tools itself. It only requests them. The program runs each tool and sends the result back, and that result is the input for the next model call. So the count is 4 because the model gets 4 inputs: the question and the three tool results."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and the group-chat picture fits: the result goes back as the next input and the model takes its turn with it in front of it. You also gave the why, so it can decide its next step. Keep this in mind for context work next: whatever goes back in is what the model sees, and it costs tokens."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, but it is not enough. The model sees each tool's whole description: its name, what it does and the parameters it takes. A name alone can mislead, for example 'check_calendar' does not say whether it books or only reads. Your own tool descriptions for the makerspace assistant are what the model relies on, so they need to be clear."
+    }
+  ],
+  "summary": "You have the loop down and can say what the model outputs and what happens to a tool result. Two things to fix. First, the program runs the tools, not the model; your q4 reasoning slipped here. Second, an agent needs a stopping condition, because more steps do not help when each step repeats the last. Next step: take one real request for the assistant and write what the model sees at each call, including the tool descriptions. That leads into context and memory. Then try writing a full description for check_calendar."
+}

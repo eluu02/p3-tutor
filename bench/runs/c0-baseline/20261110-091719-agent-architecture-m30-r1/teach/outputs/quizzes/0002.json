@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant finishes a request, and a student returns the next day and starts a brand-new conversation. Nothing was saved by your program. What does the model know about yesterday?",
+      "options": [
+        {"id": "a", "text": "Nothing, because the model keeps no record between separate calls"},
+        {"id": "b", "text": "A summary, because models store recent chats in their own memory"},
+        {"id": "c", "text": "Everything, because the context window holds the whole past week"},
+        {"id": "d", "text": "The student's name only, because it is part of the model"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In one request the agent makes three model calls. The first call's context is 1,000 tokens. Before each later call, the program adds 500 tokens (a tool call and its result) to the context from the call before. How many input tokens are sent in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your sponsor asks you to make the assistant cheaper. Each request currently pastes the same 30-page safety handbook into the system prompt. Which change most directly cuts the cost of every request?",
+      "options": [
+        {"id": "a", "text": "Retrieve only the handbook passages relevant to each question"},
+        {"id": "b", "text": "Move the handbook into the middle of the system prompt"},
+        {"id": "c", "text": "Switch to a model whose window is large enough to fit it"},
+        {"id": "d", "text": "Ask the model to read the handbook more carefully each time"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks about \"burn marks on my cuts\", but the manual's page only uses the phrase \"edge charring\". Which search is most likely to find that page?",
+      "options": [
+        {"id": "a", "text": "Exact keyword matching, because it checks every word in the manual"},
+        {"id": "b", "text": "Embedding search, because it matches meaning rather than exact words"},
+        {"id": "c", "text": "Neither, because a manual page cannot be found by a paraphrase"},
+        {"id": "d", "text": "Either, because both methods match meaning and exact words equally"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why is the assistant's saved note for each student best kept short, such as \"laser cutter: certified on a given date\", rather than saving the full transcript of each visit?"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your makerspace assistant on Monday and says they prefer evening slots. On Wednesday they open a new session and the assistant does not know this. Which design change fixes it?",
+      "options": [
+        {"id": "a", "text": "Choose a model whose context window is much larger than before"},
+        {"id": "b", "text": "Save the preference to a store and load it when a session starts"},
+        {"id": "c", "text": "Tell the model in the system prompt to remember all students"},
+        {"id": "d", "text": "Keep Monday's session open so the same window is used again"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run has a setup (system prompt and tool descriptions) of 1,000 tokens. Each step adds 200 tokens of request and result to the history. The program resends the full setup and history on every call, and the model is called 3 times in the run. How many input tokens are read in total across the 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why does a tool that returns a whole 20-page manual cost more than its own size when the agent then makes five more model calls?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must find the correct paragraph in a 300-page set of manuals for each question. Which approach fits best?",
+      "options": [
+        {"id": "a", "text": "Place the full text of every manual into the system prompt"},
+        {"id": "b", "text": "Retrain the model on the manuals before each student visit"},
+        {"id": "c", "text": "Give a search tool that returns only the few best passages"},
+        {"id": "d", "text": "Ask students to paste the manual page into their question"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A student's completed safety trainings decide whether the assistant may book a machine for them. Name one reason this record should be written by the makerspace's own system, not by the model from what the student says in chat."
+    }
+  ]
+}

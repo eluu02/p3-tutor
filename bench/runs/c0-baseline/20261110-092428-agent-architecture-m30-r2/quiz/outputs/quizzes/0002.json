@@ -1,0 +1,73 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement best separates a workflow from an agent when both use a language model and tools?",
+      "options": [
+        {"id": "a", "text": "A workflow uses one model call, while an agent always uses several"},
+        {"id": "b", "text": "A workflow has no tools, while an agent is given tools to call"},
+        {"id": "c", "text": "In a workflow, code fixes the steps; in an agent, the model does"},
+        {"id": "d", "text": "In a workflow, a person approves each step; an agent runs alone"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A makerspace assistant is built like this: for every question, the Python code first searches the manuals, then pastes the best pages into a prompt, then calls the model once to write the answer. Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "A workflow, because the code fixes the steps and their order in advance"},
+        {"id": "b", "text": "An agent, because the model writes the final answer in its own words"},
+        {"id": "c", "text": "An agent, because it uses a search tool and a language model together"},
+        {"id": "d", "text": "A workflow, because it makes only one call to the language model"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In an agent, which one decides what the next step is: the model or the program code around it? Answer with the model or the code."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Booking a machine always takes the same four steps in the same order: check the calendar, confirm the slot with the student, write the booking, send a receipt. Which design is the better choice for this part of your assistant?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model can then invent a better order for the steps"},
+        {"id": "b", "text": "An agent, because booking involves tools and tools need a model to choose"},
+        {"id": "c", "text": "An agent, because students may ask for something different each time"},
+        {"id": "d", "text": "A fixed workflow, because the steps are known and never change"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your sponsor's model budget is small. You compare an agent and a fixed workflow that both answer the same simple question correctly. What usually differs between them?",
+      "options": [
+        {"id": "a", "text": "The workflow costs more, since fixed steps cannot skip unneeded work"},
+        {"id": "b", "text": "The agent costs more, since it may take extra model calls and steps"},
+        {"id": "c", "text": "They cost the same, since the same tools are available to both"},
+        {"id": "d", "text": "The agent costs less, since the model picks only the cheapest path"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Students' questions vary a lot. One needs only a manual page. Another needs the calendar, then a manual, then the student's training record. A third needs a manual, and then a different manual after the first one points to it. You cannot list the steps in advance. Which design fits this part of the assistant?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow that runs all three tools for every question"},
+        {"id": "b", "text": "A fixed workflow with one separate fixed path for each question type"},
+        {"id": "c", "text": "An agent, because the model must choose the steps from what comes back"},
+        {"id": "d", "text": "An agent, because agents are always better than any fixed workflow"}
+      ]
+    }
+  ]
+}

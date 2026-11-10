@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The program resends the whole message list on every call, so the model sees the question and all earlier tool requests and results. The model keeps nothing between calls on its own."
+    },
+    {
+      "id": "q2",
+      "answer": 5100,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 1,000, call 2 sends 1,700, call 3 sends 2,400; the sum is 5,100. An answer of 2,400 counts only the final context and misses that each call re-sends the history."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A small personal fact about one student that is recorded over time is a note. The setup procedure is long existing reference text (retrieval), the booking is live data (tool call), and the safety rules are short standing rules (system prompt)."
+    },
+    {
+      "id": "q4",
+      "answer": "It is cheaper and more accurate: the whole manual would be re-sent and paid for on every call and would bury the relevant detail, while retrieval adds only the few chunks needed.",
+      "accepted": [
+        "cheaper and the model finds the answer better with less text",
+        "less cost and less context rot",
+        "fewer tokens to pay for on every call and the model recalls details better from a smaller context"
+      ],
+      "rationale": "Every token in the context is paid for on every call, and recall degrades as the context grows. A full answer names cost and accuracy; an answer naming only the window limit is incomplete."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The context window limits what one call can see; when a session ends the history is gone, and the next one starts empty. Memory between visits needs saved notes or records put back into the context."
+    }
+  ]
+}

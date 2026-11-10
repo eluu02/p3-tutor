@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow: in a workflow the code fixes the steps and their order, in an agent the model decides the next step each time round the loop. Both can call models and use tools, and neither is defined by length."
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "When the steps and their order are known in advance, a fixed workflow is the better choice: it is predictable, easier to test and cheaper. Tools do not require an agent (b), and letting the model choose the order (c) adds cost and risk with no benefit. Workflows can contain model calls (d), but that is not the reason."
+    },
+    {
+      "id": "q3",
+      "answer": "In an agent the model decides; in a workflow the code (the program's fixed steps) decides.",
+      "accepted": [
+        "The model decides in an agent, and the code decides in a workflow.",
+        "Agent: the model. Workflow: the program or code.",
+        "The model picks the next tool in an agent; in a workflow the developer's code fixes it in advance."
+      ],
+      "rationale": "Both halves are needed: model for the agent, code or the developer's predefined steps for the workflow. Saying only one side is partial. Saying that the program in an agent decides the next tool, or that the model decides in a workflow, is wrong."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "An open-ended problem whose steps depend on what is found along the way is where an agent earns its extra cost. Hard-coding every cause (a) cannot cover an unlisted set of steps. An agent is not always more expensive to avoid (b) as a rule, and fixed manuals (c) do not make the path to a diagnosis fixed."
+    },
+    {
+      "id": "q5",
+      "answer": 6,
+      "tolerance": 0.01,
+      "rationale": "The agent makes 4 + 1 = 5 calls, the workflow 2, a difference of 3 calls. 3 x $0.02 = $0.06 per question, so $6.00 over 100 questions. An answer of 8 (4 calls) forgets the final-answer call; 2 or 10 compares the wrong totals."
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "Routing is a workflow: the model's label only chooses between paths the code already defined, and the code runs each path step by step. In an agent the model chooses actions and their order itself. Using a model call does not make a system an agent (a), and neither does having more than one call (c); a model can influence a workflow, so (d) is wrong."
+    }
+  ]
+}

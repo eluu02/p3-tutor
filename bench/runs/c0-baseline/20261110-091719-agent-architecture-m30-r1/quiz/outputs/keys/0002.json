@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The code fixes the sequence (search, call the model once, return the reply), so the code owns the control flow. The model only produces text inside one step. Picking the model (a) or a shared role (d) shows the belief that writing the text means deciding the steps (M9).",
+      "distractors": {"a": "M9", "d": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "In an agent the model directs its own process: it chooses the next tool and when to stop. In (a), (b) and (d) the code fixes the path (a sequence, a routing step, a draft-and-check chain), even though models are called, so they are workflows. Picking (a), (b) or (d) shows the belief that using a model, or several model calls, makes a system an agent (M7).",
+      "distractors": {"a": "M7", "b": "M7", "d": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "When the steps are known and never vary, code can run them with no extra model calls to decide what to do next, which is cheaper, faster and predictable. Needing care (b) is a reason for checks, not for an agent. Agents are not always better (c; M8), and workflows can contain model calls (d; M7).",
+      "distractors": {"b": "M8", "c": "M8", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "The code runs the known steps itself, so there are fewer model calls and fewer tokens than an agent spending calls to decide what to do next.",
+      "accepted": [
+        "Fewer model calls",
+        "It needs fewer model calls because the steps are fixed",
+        "An agent spends extra model calls deciding the next step, a workflow does not",
+        "An agent re-reads a growing context at every step, which a workflow avoids",
+        "It is more predictable, so the cost per request is bounded"
+      ],
+      "rationale": "Any one of these is fully correct: fewer model calls (the code chooses the steps for free), less context re-read per step, or a predictable and bounded cost. Saying only that a workflow is simpler or better, with no link to calls, tokens or cost, is partial. Saying that workflows use no model at all is wrong (M7)."
+    },
+    {
+      "id": "q5",
+      "answer": "The number of model calls does not decide it; what decides it is who owns the control flow: if the code fixes the steps in advance it is a workflow, and if the model chooses the next step and when to stop it is an agent.",
+      "accepted": [
+        "Counting calls misses who decides the next step: code (workflow) or model (agent)",
+        "It depends on whether the code or the model controls the sequence of steps, not how many calls there are",
+        "Three fixed calls set by the code is still a workflow; it is an agent only if the model decides what happens next"
+      ],
+      "rationale": "Full credit needs both parts: the call count is not the test, and who decides the next step (code or model) is. Saying only that it depends on who is in control, with no mention of the call count, is still fully correct if the owner is named; saying only that three calls is not enough, with no criterion, is partial. Agreeing with the teammate shows M7."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "Diagnosing a failing print needs an unpredictable number and order of steps: which manual page, whether to check bookings, whether repair notes matter. That is where letting the model choose the steps pays off. The other three have a fixed, known path (a conversion, a scheduled reminder, a table lookup), so plain code is better and cheaper. Choosing one of them shows the belief that agents are better for any task (M8).",
+      "distractors": {"a": "M8", "b": "M8", "c": "M8"}
+    }
+  ]
+}

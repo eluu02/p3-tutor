@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls; it knows only what is in the context the program sends. Without saved notes loaded back in, yesterday is gone. Believing the model stores chats itself (b, d) is the misconception that memory is automatic; a window holds text sent in a call, not a past week the program did not send (c).",
+      "distractors": {"b": "M3", "c": "M8", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 0,
+      "rationale": "Each call re-sends everything before it: 1,000, then 1,500, then 2,000. The total is 4,500. Answering 2,000 (the last context only) or 1,000 shows the belief that earlier text is not sent again (M7)."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval puts only the few relevant passages into the context, so far fewer tokens are sent and billed on each request. A larger window (c) only fits the handbook, it does not stop it being paid for every call (M8); moving it (b) or asking for more care (d) changes nothing about the token count.",
+      "distractors": {"c": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "Embedding search compares meaning, so \"burn marks\" can match \"edge charring\". Keyword matching needs the same words (a), and combining methods is better than either alone but the two do not match meaning equally (d).",
+      "distractors": {"a": "M9", "d": "M9"}
+    },
+    {
+      "id": "q5",
+      "answer": "A short note costs few tokens to load and holds just the stable facts needed, while a full transcript is long, costs more on every call and buries the useful facts in noise.",
+      "accepted": [
+        "It uses fewer tokens and keeps only the useful facts.",
+        "A transcript is long and noisy and would fill the context and cost more.",
+        "Short notes are cheap to load into context and contain only what matters."
+      ],
+      "rationale": "Full credit for a reason tied to the context: cost in tokens, limited space, or noise burying the useful fact. Saying only that it saves disk space is partial or wrong, since storage is not the constraint."
+    }
+  ]
+}

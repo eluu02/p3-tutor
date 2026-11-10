@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 16851,
+  "stop_reason": "end_turn",
+  "session_id": "2dfe40d3-d7d3-4f76-a71a-fad477b16fc9",
+  "total_cost_usd": 0.10354479999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 19044,
+    "cache_read_input_tokens": 88928,
+    "output_tokens": 1846,
+    "output_tokens_details": {
+      "thinking_tokens": 236
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 19044,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 581,
+        "cache_read_input_tokens": 29255,
+        "cache_creation_input_tokens": 425,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 425
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1846,
+      "cacheReadInputTokens": 88928,
+      "cacheCreationInputTokens": 19044,
+      "webSearchRequests": 0,
+      "costUSD": 0.10354479999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 236,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 19044,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither five nor ten. The question assumes more agents always give better results, and that isn't true.\n\n**Why it's tempting:** a team of specialists sounds like it should beat one generalist. But every agent is its own loop of model calls, and each one costs tokens. Splitting also adds hand-offs. When one agent passes work to another, it summarizes, and details get lost in the summary. Your budget is small, so this matters more for you than for most teams.\n\n**A worked example.** A student asks: \"Book me the laser cutter Friday at 3, and what settings for 3mm acrylic?\"\n\n- **One agent with three tools** (search manuals, check calendar, book). It makes about 4 model calls, and all the context sits in one place.\n- **Five agents** (router, manual-reader, calendar-checker, booker, summarizer). The router makes a call, then each specialist makes at least one. The summarizer makes one more, and each hand-off can drop a detail such as \"Friday at 3\". That's easily 8 to 10 calls, and the answer isn't better.\n\n**When splitting pays off:**\n- One agent's context gets too crowded, for example when it has to read very long manuals.\n- The tools or permissions need to be kept apart.\n- Two pieces of work can run independently.\n\n**A sensible default for you.** Start with one agent and a few well-described tools. Use a fixed workflow for the predictable parts, such as the booking steps. Add a second agent only when you can name the specific problem it solves. At your design review, \"we split because X\" is a defensible answer. \"More agents are better\" isn't.\n\nQuick check: which part of your assistant is most likely to need its own context, and why?\n\nI can turn this into a lesson on when multi-agent designs pay off. It would make most sense after the context and memory lesson, which is next on your path.",
+  "ttft_ms": 1742,
+  "type": "result",
+  "duration_ms": 17029,
+  "uuid": "9fef99cf-2cf7-4073-8bed-4820cff7fb15",
+  "ttft_stream_ms": 1095,
+  "time_to_request_ms": 100,
+  "first_content_frame_ms": 1096,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1846,
+      "cacheReadInputTokens": 88928,
+      "cacheCreationInputTokens": 19044,
+      "webSearchRequests": 0,
+      "costUSD": 0.10354479999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 236,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 19044,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

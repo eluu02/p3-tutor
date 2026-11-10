@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow never calls a model, while an agent always does"},
+        {"id": "b", "text": "A workflow uses tools, while an agent only writes plain text"},
+        {"id": "c", "text": "A workflow follows steps the code fixes, while an agent picks its own"},
+        {"id": "d", "text": "A workflow answers once, while an agent must always run longer"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Every booking request at the makerspace needs the same three steps in the same order: check the calendar, book the slot if it is free, then email the student a confirmation. Which design fits best?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow, because the order is known before the request arrives"},
+        {"id": "b", "text": "An agent, because booking needs a tool and tools require an agent"},
+        {"id": "c", "text": "An agent, because the model can then choose any order it likes"},
+        {"id": "d", "text": "A fixed workflow, because workflows never need to call the model"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence: in the makerspace assistant, who decides which tool is called next in an agent, and who decides it in a workflow?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A student writes: \"My 3D print keeps peeling off the bed and I don't know why.\" The right steps depend on what the manuals say and what the student answers, and nobody can list them in advance. Which design fits this request best?",
+      "options": [
+        {"id": "a", "text": "A fixed workflow with one hard-coded step for every possible cause"},
+        {"id": "b", "text": "A fixed workflow, because it always costs less than any agent"},
+        {"id": "c", "text": "A fixed workflow, because the manuals are the same every time"},
+        {"id": "d", "text": "An agent, because the number and order of steps cannot be known"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Assume every model call costs $0.02. A fixed workflow answers a manual question with exactly 2 model calls. An agent answering the same question makes 1 call per tool request plus 1 for the final answer, and on average it makes 4 tool requests. How many more dollars does the agent cost than the workflow over 100 such questions?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "The assistant's code first asks a model to label each question \"manual\" or \"booking\". The code then runs one fixed sequence of steps for \"manual\" and a different fixed sequence for \"booking\". Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because a model's output decides which path runs"},
+        {"id": "b", "text": "A workflow, because the code owns the paths and the model only picks one"},
+        {"id": "c", "text": "An agent, because it uses more than one model call per request"},
+        {"id": "d", "text": "A workflow, because a model never influences which steps run"}
+      ]
+    }
+  ]
+}

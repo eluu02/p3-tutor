@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    :root { --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4; --accent: #9a4517; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; } }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Charter, Georgia, serif; line-height: 1.5; }
+    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    a { color: var(--accent); }
+    @media print { :root { --bg: #fff; --text: #000; --accent: #000; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Context and memory in an agent</h1>
+  <p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+  <h2>Key terms</h2>
+  <ul>
+    <li><strong>Context</strong>: all the text the model reads in one call (system prompt, tool descriptions, message history, notes, retrieved chunks).</li>
+    <li><strong>Context window</strong>: the most tokens one call can hold, input and reply together.</li>
+    <li><strong>Context rot</strong>: recall of details gets worse as the context grows.</li>
+    <li><strong>Compaction</strong>: replace old history with a summary.</li>
+    <li><strong>Retrieval</strong>: search documents, put only the best chunks into the context.</li>
+  </ul>
+  <h2>Rules to remember</h2>
+  <ul>
+    <li>The model keeps nothing between calls. Your program resends the whole history every call.</li>
+    <li>Cost of a request = sum of the context sent on every call, not the final size.</li>
+    <li>Between sessions nothing survives unless you save it and load it back.</li>
+    <li>Trim tool results to what is needed.</li>
+  </ul>
+  <h2>Where does it go?</h2>
+  <table>
+    <thead><tr><th>Information</th><th>Home</th></tr></thead>
+    <tbody>
+      <tr><td>Short rules for every request</td><td>System prompt</td></tr>
+      <tr><td>Small facts about a person, change over time</td><td>Notes (saved per student)</td></tr>
+      <tr><td>Long existing documents</td><td>Retrieval (chunks and a search)</td></tr>
+      <tr><td>Live data owned by another system</td><td>Tool call (fresh each time)</td></tr>
+    </tbody>
+  </table>
+  <h2>Cost example</h2>
+  <p>Inputs of 1,550 + 2,030 + 5,110 + 5,390 = 14,080 tokens for four calls; a 3,000-token page is paid for in every call after it arrives.</p>
+</main>
+</body>
+</html>

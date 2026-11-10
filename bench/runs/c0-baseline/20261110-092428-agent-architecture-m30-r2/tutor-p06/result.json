@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 20579,
+  "stop_reason": "end_turn",
+  "session_id": "cf424bc0-0236-4dbc-ac6d-68fab2e675f6",
+  "total_cost_usd": 0.11696989999999999,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23142,
+    "cache_read_input_tokens": 65399,
+    "output_tokens": 1785,
+    "output_tokens_details": {
+      "thinking_tokens": 349
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23142,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 604,
+        "cache_read_input_tokens": 33076,
+        "cache_creation_input_tokens": 702,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 702
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1785,
+      "cacheReadInputTokens": 65399,
+      "cacheCreationInputTokens": 23142,
+      "webSearchRequests": 0,
+      "costUSD": 0.11696989999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 349,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23142,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's a new angle, built on your makerspace.\n\n**Picture a front-desk helper in a windowless office.** They're smart and have read every manual, but they can't leave the room. They can't see the booking calendar or touch the laser cutter. The only thing they can do is write notes.\n\nNext to them is a **runner**, who can go anywhere but doesn't decide anything. Taped to the wall is a **menu of services**, each with a short description: \"Check calendar: give me a machine and a date. Book slot: give me a machine, a start time and a student ID.\"\n\nA student slides in a question: \"Is the laser cutter free Thursday afternoon?\"\n\n1. The helper reads the menu and decides the calendar service is the right one.\n2. They write a slip: \"Check calendar: laser cutter, Thursday.\" They don't make the check themselves. They only ask for it.\n3. The runner takes the slip, looks at the real calendar, and slides back a note: \"Free 2–4pm.\"\n4. The helper reads the note and writes the answer to the student: \"Yes, 2–4pm is open. Want me to book it?\"\n\nThat's tool calling. **The model never does anything. It writes a structured request, your program carries it out, and the result goes back in as more text for the model to read.** The model is the helper, your Python is the runner, and the menu is the tool descriptions. That's why a clear description matters: it's the only thing the helper knows about a service.\n\nThe analogy breaks in one place. A real helper remembers the last hour. The model only knows what's on the notes in front of it, so every slip and every result gets re-read each round. That's also where your cost comes from, and we'll cover it in the context lesson.\n\nQuick check, in your own words: in the story, who actually looks at the calendar, and what does the helper do with the answer?\n\nIf you'd like, I can turn this into a short lesson that walks one full booking request through the loop.",
+  "ttft_ms": 5288,
+  "type": "result",
+  "duration_ms": 20829,
+  "uuid": "912ee4f3-a40d-4e79-bc46-b81e256bec53",
+  "ttft_stream_ms": 4467,
+  "time_to_request_ms": 191,
+  "first_content_frame_ms": 4467,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1785,
+      "cacheReadInputTokens": 65399,
+      "cacheCreationInputTokens": 23142,
+      "webSearchRequests": 0,
+      "costUSD": 0.11696989999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 349,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23142,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}
