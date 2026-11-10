@@ -9,26 +9,20 @@ The question under each heading is there to get you started; delete it when you 
 
 ## How I like things explained
 
-<!-- Big picture first, or a concrete example first? Analogies, diagrams, math, code, stories? -->
-Start with a concrete example, then give the general idea.
-Define each new term the first time it appears.
+Start with a short, simple explanation, avoiding jargon or technical terms unless necessary. Then provide a detailed explanation that includes explanations for any code, formulas, etc.
 
 ## Examples I relate to
 
-<!-- Your major, your hobbies, your job, sports, games, cooking: whatever makes an example click for you. -->
-Everyday situations, and simple engineering examples.
+Advanced Machine Learning and Deep Learning. Only connect big picture examples rather than specific algorithms or formulas. Feel free to use examples only from other fields of computer science.
 
 ## How long and how dense
 
-<!-- Short and dense, or roomy with more worked examples? Bullet points or paragraphs? -->
-Short paragraphs in plain language, one idea at a time, with a worked example for anything new.
+For chat replies, the initial explanation in a short and simple paragraph with no more than five sentences, then the detailed paragraph with no more than 15 sentences. One idea at a time, with at least one and at most three worked examples for anything new.
 
 ## How I like feedback
 
-<!-- Blunt or gentle? Just the fix, or the reasoning too? How much praise? -->
-Tell me plainly what was right and what was wrong, why, and what to do next.
+Tell me plainly what was right and what was wrong. Then explain why and what the gaps are. Finally, tell me the next steps.
 
 ## How I like to be talked to
 
-<!-- Casual or formal? Questions back to make me think, or straight answers? -->
-Friendly and direct, without filler or flattery.
+Casual and friendly. Give direct answers without filler or flattery.
