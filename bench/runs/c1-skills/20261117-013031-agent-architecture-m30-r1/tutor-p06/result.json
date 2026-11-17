@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 16337,
+  "stop_reason": "end_turn",
+  "session_id": "c4398adc-2be3-46f9-a996-43c9bbf56309",
+  "total_cost_usd": 0.0840001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 14584,
+    "cache_read_input_tokens": 79181,
+    "output_tokens": 1773,
+    "output_tokens_details": {
+      "thinking_tokens": 437
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14584,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 605,
+        "cache_read_input_tokens": 24523,
+        "cache_creation_input_tokens": 697,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 697
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1773,
+      "cacheReadInputTokens": 79181,
+      "cacheCreationInputTokens": 14584,
+      "webSearchRequests": 0,
+      "costUSD": 0.0840001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 437,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14584,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Think of a boss who is locked in an office with no phone and no internet, and an assistant outside who can run errands. The boss can only pass notes under the door, like \"Please check the booking calendar for Friday.\" The assistant does the errand and slides the result back under the door. The boss reads it and writes the next note, or writes a final answer.\n\n**The detailed version**\n\nThe model is the boss. It can't do anything itself. All it can do is read text and write text. So \"calling a tool\" really means the model writes a structured note that says \"I want this tool, with these details.\" Your program is the assistant. It reads the note, does the real work (looks at the calendar, searches the manual), and sends the result back as more text. Then the model gets called again, now with that result in front of it.\n\nHere are two things that trip people up:\n- **The model never touches the tool.** It only requests. Your program decides whether and how to run it.\n- **The boss has a short memory.** Each time the boss reads a new slip, it needs the whole conversation so far handed back with it. That's why each step is a separate model call.\n\n**Example 1.** You ask, \"Is the laser cutter free Friday?\" The boss's note says \"check the calendar for the laser cutter on Friday.\" The assistant checks and slides back \"booked 2–4pm.\" The boss then writes the final answer to you.\n\n**Example 2.** The boss can only request errands from a menu the assistant posted outside the door, with a one-line description of each errand. If a description is vague, the boss picks the wrong errand. That's why writing good tool descriptions is one of your mission goals.\n\n**Where the analogy breaks down.** A real boss would know what the assistant is capable of. The model only knows what's on the menu you gave it. A human boss also wouldn't need the whole history re-read every time.\n\nQuick check: in your own words, who actually looks up the calendar, the model or your program? And what does the model get back afterwards?",
+  "ttft_ms": 1419,
+  "type": "result",
+  "duration_ms": 16509,
+  "uuid": "319dba37-391a-431a-8847-477595732770",
+  "ttft_stream_ms": 933,
+  "time_to_request_ms": 89,
+  "first_content_frame_ms": 933,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1773,
+      "cacheReadInputTokens": 79181,
+      "cacheCreationInputTokens": 14584,
+      "webSearchRequests": 0,
+      "costUSD": 0.0840001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 437,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14584,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

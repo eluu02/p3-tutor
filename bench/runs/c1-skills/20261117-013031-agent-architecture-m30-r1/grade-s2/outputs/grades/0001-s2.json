@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: what makes it an agent is the loop of the model picking an action, the program running it, and the result coming back. A longer prompt or a bigger model only changes what a single call can do, so the loop is the structural difference."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the model only outputs a structured request naming check_calendar and its arguments, and the program does the actual calling. Keep this split in mind, because it is where tool descriptions and safety checks plug in."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "The idea behind your answer is that an agent left running long enough will eventually fix the problem, so it needs no stopping condition (M6). It is tempting because a person who keeps trying often does get there. But this agent is repeating the same edit and getting the same failing test, so more steps add no new information; it will just burn budget. The safeguard is option b, a step limit that ends the loop and reports back to a person, which matters a lot with your small model budget."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your 4 is right: three tool requests plus the final answer is four model calls. The reason you gave is off, though: it assumes the model runs the tools itself (M4). The model only writes a request each time; the program runs check_calendar, search_manuals and check_training_record between calls, and those runs are not model calls. A cleaner way to count is one call for the question and one for each of the three tool results."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the result goes back in as the model's next input, and the model then uses it to decide what to do next. Your group-chat analogy works because the model only ever sees text in front of it, so a tool result has to be put into that text to count."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, but not all of it. The model gets each tool's full description from the program: its name, what it does and the parameters it takes, and it picks the one that fits. A name alone can mislead (what would a tool called check do?), which is why writing clear descriptions for your own tools matters."
+    }
+  ],
+  "summary": "You have the agent loop down, and you know the model only requests tools while the program carries them out (q1, q2, q5). Still open: the belief that an agent left running will eventually succeed, so it needs no stopping condition (M6), and a lingering sense that the model runs the tools itself (M4), which showed in your q4 reasoning. Next step: for the makerspace assistant, write down a stopping rule (a step limit and what it reports), and draft a one-sentence description for check_calendar that says what it does and its parameters."
+}

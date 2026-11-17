@@ -1,0 +1,61 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement best separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow makes one model call in total, while an agent makes several calls in a row"},
+        {"id": "b", "text": "A workflow cannot use any tools, while an agent is the kind of system that can use them"},
+        {"id": "c", "text": "In a workflow the program's code fixes the order of steps; in an agent the model chooses them"},
+        {"id": "d", "text": "A workflow runs on a smaller, cheaper model, while an agent needs a larger and stronger one"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your assistant has the tools check_calendar, search_manuals and book_machine. In a loop, the model picks which tool to call next, and the loop ends when the model writes a final answer. In one sentence, who owns the control flow here, and is this a workflow or an agent?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate for a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Booking a machine, where the same three steps (check training, check calendar, write the booking) run in that order every time"},
+        {"id": "b", "text": "Answering open questions from students, where the needed manuals and bookings differ and the order of lookups is unclear"},
+        {"id": "c", "text": "Diagnosing a jammed 3D printer, where each next check depends on what the previous check turned up"},
+        {"id": "d", "text": "Planning which machines a student's project needs, where the project description is vague and keeps changing"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "For a task whose steps are known in advance, name two reasons a fixed workflow is a better choice than an agent. Keep your answer to one or two sentences."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team is choosing how to build one part of the assistant. Which rule of thumb is best?",
+      "options": [
+        {"id": "a", "text": "Use an agent for any task with several steps, because the model can handle however many steps are needed"},
+        {"id": "b", "text": "Use an agent whenever accuracy matters most, because the loop lets the model check and correct its own work"},
+        {"id": "c", "text": "Use an agent for any task that needs a tool, because only an agent can call tools on a student's behalf"},
+        {"id": "d", "text": "Use a workflow when you can write the steps down in advance, and an agent only where you cannot predict them"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O4",
+      "stem": "A model reads each student message and labels it either \"booking\" or \"manual question\". Your code then runs a fixed booking sequence or a fixed manual-lookup sequence to match the label. In one or two sentences, is this a workflow or an agent, and why?"
+    }
+  ]
+}

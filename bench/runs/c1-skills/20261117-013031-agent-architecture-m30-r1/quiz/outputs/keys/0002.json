@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The dividing line is who decides the next step: in a workflow the code does, along paths written in advance; in an agent the model does, at run time. Number of calls (a), tool use (b) and model size (d) do not separate them, since workflows can make many calls and use tools, and either can run on any model."
+    },
+    {
+      "id": "q2",
+      "answer": "The model owns the control flow, so it is an agent.",
+      "accepted": [
+        "The model; agent",
+        "The model decides the next step, so it is an agent",
+        "It is an agent because the model chooses which tool to call next"
+      ],
+      "rationale": "Full credit needs both the owner (the model) and the label (agent). Saying agent without naming the model as the decider is partial. Saying the program or code owns the flow, or calling it a workflow because tools and a loop are present, confuses who decides the steps with what machinery is used."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A workflow fits when the steps and their order are known in advance, as in the booking sequence. In b, c and d the next step depends on what is found or on a vague request, which is where a model choosing the steps pays off."
+    },
+    {
+      "id": "q4",
+      "answer": "It is cheaper (fewer model calls, no model deciding each step) and more predictable and reliable (easier to test and debug).",
+      "accepted": [
+        "Lower cost and more predictable behavior",
+        "Cheaper and easier to test",
+        "Fewer model calls and no chance of the model picking a wrong step or looping",
+        "It costs less and behaves the same way every time"
+      ],
+      "rationale": "Full credit names two distinct reasons from: lower cost or fewer calls, predictability or consistency, reliability, easier testing or debugging, lower delay. Giving one reason, or two wordings of the same one, is partial. Claiming a workflow is smarter or more flexible suggests the belief that an agent is always the better design."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Start with the simplest design: if the steps can be written down, a workflow does the job with less cost and risk; reach for an agent only where the steps cannot be predicted. Several steps (a) can still be fixed, accuracy (b) is not automatically helped by a loop, and workflows can call tools too (c)."
+    },
+    {
+      "id": "q6",
+      "answer": "A workflow, because the code owns the control flow: the model only picks a label, and the code runs one of the fixed sequences it was given.",
+      "accepted": [
+        "Workflow: the model's output only selects between paths the code defined, and the code decides what runs",
+        "It is a workflow (routing), since the possible steps and their order are fixed in code and the model does not choose its own actions in a loop",
+        "Workflow, because the model does not decide the steps, it just classifies"
+      ],
+      "rationale": "Full credit needs workflow plus the reason: the code, not the model, owns the steps and the model's choice is limited to paths written in advance. Answering workflow without the reason is partial. Answering agent because a model makes a decision or a model is called confuses any model decision with the model owning the control flow."
+    }
+  ]
+}

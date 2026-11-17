@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 13184,
+  "stop_reason": "end_turn",
+  "session_id": "3e358531-46c5-4a43-9627-0e166a46e75a",
+  "total_cost_usd": 0.07554829999999998,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 13808,
+    "cache_read_input_tokens": 54643,
+    "output_tokens": 1484,
+    "output_tokens_details": {
+      "thinking_tokens": 113
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 13808,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 760,
+        "cache_read_input_tokens": 23989,
+        "cache_creation_input_tokens": 455,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 455
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1484,
+      "cacheReadInputTokens": 54643,
+      "cacheCreationInputTokens": 13808,
+      "webSearchRequests": 0,
+      "costUSD": 0.07554829999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 113,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 13808,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither. \"More agents always give better results\" isn't true, so five versus ten is the wrong question. Every extra agent costs more tokens and adds another handoff where information can get lost. Splitting only pays off when it solves a specific problem, like one agent's context getting too crowded or two jobs needing very different tools. For a makerspace assistant that answers from manuals, checks a calendar and books time, I'd start with one agent and three tools. Add a second agent only when you can name the problem it fixes.\n\n**Why more agents can make things worse**\n\n- **Cost:** Each agent has its own loop, and each loop re-sends instructions and context to the model every step. Ten agents means roughly ten times the instructions and tool descriptions you pay for. Your budget is small, so this matters.\n- **Handoff errors:** Agents only know what they're told. Think of a relay race, where every baton pass is a chance to drop something. If the \"manual agent\" tells the \"booking agent\" \"the laser cutter needs training\" and leaves out which training, the booking agent is guessing.\n- **Coordination overhead:** Someone has to decide which agent handles what. That's another model call that can pick wrong, and you now have more places to debug.\n\n**When splitting does pay off**\n\n- **Context overload:** Say your manuals are huge and the booking logic is long and fiddly. One agent holding both might get confused or get expensive. A manual-search helper that returns only a short answer keeps the main agent's context small.\n- **Different needs:** One part could run on a cheaper model, or needs stricter rules (like booking). Splitting lets you tune each part separately.\n- **Independent work:** Tasks that don't depend on each other can run in parallel, like checking three machines' calendars at once.\n\n**Worked example:** A student asks \"How do I use the 3D printer, and can I book it Thursday at 2?\" One agent can do this in a short loop: search the manual, check the calendar, book, reply. Splitting it into a \"greeter\", \"manual\", \"calendar\" and \"booking\" agent adds three handoffs and three extra loops for the same result. A fixed workflow might even beat an agent here, since the steps are predictable. We'll get to that later.\n\nHere's a quick question to try: if the manuals are long, which of those three reasons for splitting would apply first, and would it need a whole separate agent or just a helper?",
+  "ttft_ms": 1580,
+  "type": "result",
+  "duration_ms": 13356,
+  "uuid": "f9798b9e-b3be-41a6-8569-ac97fbfe95bb",
+  "ttft_stream_ms": 1076,
+  "time_to_request_ms": 126,
+  "first_content_frame_ms": 1076,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1484,
+      "cacheReadInputTokens": 54643,
+      "cacheCreationInputTokens": 13808,
+      "webSearchRequests": 0,
+      "costUSD": 0.07554829999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 113,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 13808,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}

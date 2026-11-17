@@ -1,0 +1,119 @@
+{
+  "duration_api_ms": 14087,
+  "stop_reason": "end_turn",
+  "session_id": "163df5a0-e0a5-4834-a238-729985b0e32d",
+  "total_cost_usd": 0.07570829999999999,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 13906,
+    "cache_read_input_tokens": 54723,
+    "output_tokens": 1460,
+    "output_tokens_details": {
+      "thinking_tokens": 164
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 13906,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 678,
+        "cache_read_input_tokens": 24029,
+        "cache_creation_input_tokens": 513,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 513
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1460,
+      "cacheReadInputTokens": 54723,
+      "cacheCreationInputTokens": 13906,
+      "webSearchRequests": 0,
+      "costUSD": 0.07570829999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 164,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 13906,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that's not right. A language model doesn't remember earlier conversations on its own. Each time you call it, it only sees the text you send in that one call. If last week's chat isn't in that text, the model has no idea it happened. Your assistant will only remember a student if your code saves what they said and puts it back in later.\n\n**Why it feels like memory.** In a chatbot app, the app re-sends the whole conversation so far with every new message. The model reads it all again from the top each time, so it looks like it's remembering. The model's learned knowledge from training doesn't change when people chat with it. Anything the model \"knows\" about a conversation is only the text sitting in its current input, which is called the context.\n\n**Example 1: a web server.** Think of a plain HTTP server that keeps no state. Each request arrives with no memory of the last one. To keep a user logged in, you store a session in a database or a cookie, and the client sends it back on every request. The model works the same way. Your app is the session store, and the context is the request.\n\n**Example 2: your makerspace assistant.** Say a student tells it on Monday, \"I finished the laser cutter safety training.\" On the next Monday they ask, \"Can I book the laser cutter?\" The model sees only that one question, so it can't know about the training. Your code has to do the work:\n1. When the student says something worth keeping, save it. A small JSON file or database row keyed by student ID would do, like `{\"student_42\": {\"laser_training\": \"done\"}}`.\n2. At the start of the next session, load that record.\n3. Put it into the text you send, for example \"Known about this student: laser training completed\", before their new question.\n\nNow the model can answer correctly, because the fact is in its input.\n\n**What this means for your design.** Deciding what to save between sessions, and what to put back into the context, is your job as the designer. That's the context and memory topic coming up next in your mission. It also touches your budget, because everything you re-send costs tokens on every call. So you'll want to save short facts like training status, not whole transcripts.\n\nQuick check: if you only saved a one-line fact per student instead of their full chat history, what would you gain and what might you lose?",
+  "ttft_ms": 1503,
+  "type": "result",
+  "duration_ms": 14245,
+  "uuid": "d95e4980-f8ff-4229-a487-aebe65d8873e",
+  "ttft_stream_ms": 987,
+  "time_to_request_ms": 109,
+  "first_content_frame_ms": 988,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1460,
+      "cacheReadInputTokens": 54723,
+      "cacheCreationInputTokens": 13906,
+      "webSearchRequests": 0,
+      "costUSD": 0.07570829999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 164,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 13906,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  }
+}
