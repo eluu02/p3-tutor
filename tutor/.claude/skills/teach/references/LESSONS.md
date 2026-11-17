@@ -39,18 +39,20 @@ When no length is asked for, use the one `PREFERENCES.md` implies, or 15 minutes
 
 1. **Opening:** the title, the time, the win in one sentence ("By the end of this lesson you can ..."), and one or two sentences tying it to the mission.
 2. **Warm-up:** one or two recall questions on earlier material from the learning records, for spacing, with the answers revealed on demand.
-3. **Sections, one idea each,** in a steady rhythm: explain only the knowledge the skill needs, in plain words; show a concrete example, drawn from the examples `PREFERENCES.md` says the learner relates to; then check with a practice question that gives immediate feedback.
+3. **Sections, one idea each,** in a steady rhythm: explain only the knowledge the skill needs, in plain words; show a concrete example, drawn from the examples `PREFERENCES.md` says the learner relates to; then check with a "Check yourself" practice question that gives immediate feedback, whose answer stays hidden until the learner has picked an option (see below).
 4. **Misconceptions where they bite:** name the common wrong ideas about this objective (from `NOTES.md`, the learning records, the keys' distractors and your sources), say why each is tempting, and show with an example why it is wrong.
 5. **Worked example, then practice:** a worked example step by step, then a similar task for the learner with the steps faded, and the solution on demand.
 6. **Summary:** the key ideas in three to five lines, and a prompt to explain the main idea in their own words before moving on.
 7. **Go further:** the primary source, the single most high-quality, high-trust resource you found, to read or watch next; two to four other sources you cited; and a community where they can test the skill (see Wisdom below).
-8. **Closing:** a reminder that they can ask you follow-up questions in the chat about anything unclear, and that a short quiz on this lesson is ready when they are.
+8. **Closing:** a reminder that they can ask you follow-up questions in the chat about anything unclear, and that they can ask for a quiz on this lesson with `/quiz` when they are ready.
 
 ## Knowledge and skills
 
 - Teach only the knowledge the skill needs, and make it easy to take in: plain words, one new term at a time, each defined where it first appears, using the terms in `GLOSSARY.md` when it exists.
 - Then make the skill stick with effortful practice: recall, worked examples followed by faded ones, and applying the idea to a new case.
 - Every practice question gets feedback at once: why the right answer is right, and why each tempting wrong answer is wrong.
+- A "Check yourself" question never shows its answer before the learner has answered it: build it as the template's `data-check` block, whose options are buttons and whose answer sits in a hidden `.check-answer` that the script reveals only after a pick; never put a "Show the answer" control or an open `<details>` with the answer in it.
+  The warm-up recall questions and the faded practice task keep their answers on demand.
 - For a multiple-choice question, give every option the same number of words (and characters, if possible), vary which position holds the right one, and never give it away by formatting or order.
 - The lesson's practice questions are never the quiz items: the quiz checks what the practice built, so it needs fresh questions.
 - For a skill done away from the screen, such as a yoga pose, a recipe or a lab procedure, guide the learner through the real steps and tell them how to tell whether they did each one right.

@@ -12,6 +12,7 @@
   <meta name="p3-minutes" content="{{MINUTES}}">
   <meta name="p3-objective" content="{{OBJECTIVE_ID}}">
   <title>{{TITLE}}</title>
+  <noscript><style>.check-answer[hidden] { display: block; }</style></noscript>
   <style>
     :root {
       --bg: #fffdf8;
@@ -117,6 +118,7 @@
       nav.toc { display: none; }
       a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
       .box, .check, figure, table, pre { break-inside: avoid; }
+      .check-answer[hidden] { display: block; }
     }
   </style>
 </head>
@@ -203,7 +205,8 @@
     </div>
 
     <!-- A practice check with immediate feedback. Options: the same number of words, the right one in a varied position.
-         Each button's data-why explains that choice. Never reuse a quiz item here. -->
+         Each button's data-why explains that choice. Never reuse a quiz item here.
+         The answer stays hidden until the learner picks an option: no "Show the answer" control, and the script reveals it. -->
     <div class="check" data-check>
       <span class="label">Check yourself</span>
       <p>{{PRACTICE QUESTION}}</p>
@@ -213,10 +216,9 @@
         <li><button type="button" data-correct="false" data-why="{{WHY THIS IS TEMPTING BUT WRONG}}">{{OPTION}}</button></li>
       </ul>
       <p class="feedback" aria-live="polite"></p>
-      <details>
-        <summary>Show the answer</summary>
-        <p>{{THE RIGHT OPTION AND WHY, FOR READERS WITHOUT SCRIPTS OR ON PAPER}}</p>
-      </details>
+      <div class="check-answer" hidden>
+        <p>{{THE RIGHT OPTION AND WHY, SHOWN AFTER ANY PICK, AND ON PAPER OR WITHOUT SCRIPTS}}</p>
+      </div>
     </div>
   </section>
 
@@ -266,21 +268,23 @@
 
   <footer class="closing">
     <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
-    <p>A short quiz on this lesson is ready (quiz {{QUIZ NUMBER}}): ask me for it when you want to check what stuck.</p>
+    <p>When you want to check what stuck, ask me for a quiz on this lesson with <code>/quiz</code>.</p>
   </footer>
 
 </main>
 <script>
-  // Practice checks: mark the chosen option and explain it at once.
+  // Practice checks: mark the chosen option, explain it at once, and only then reveal the answer.
   document.querySelectorAll("[data-check]").forEach(function (box) {
     var buttons = box.querySelectorAll("button[data-correct]");
     var out = box.querySelector(".feedback");
+    var answer = box.querySelector(".check-answer");
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
         buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
         var right = button.getAttribute("data-correct") === "true";
         button.classList.add(right ? "right" : "wrong");
         if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+        if (answer) { answer.hidden = false; }
       });
     });
   });
