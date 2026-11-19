@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "10",
+      "accepted": ["ten", "10 entries", "10 nonzero entries", "1 + 2 + 3 + 4 = 10"],
+      "rationale": "Row i keeps positions 1 to i, the diagonal included, so the rows hold 1 + 2 + 3 + 4 = 10 nonzero weights. An answer of 6 leaves out the diagonal (each token attending to itself); 16 ignores the mask (M1)."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "In encoder-decoder attention the queries come from the previous decoder layer and the keys and values come from the encoder output (Vaswani et al., 3.2.3). Option b describes the decoder's self-attention instead; a and d split keys and values across the two sides, which never happens because each key labels its own value."
+    },
+    {
+      "id": "q3",
+      "answer": "1",
+      "accepted": ["1.0", "one", "100%", "1, all of it"],
+      "rationale": "The first token can attend only to itself, so its single unmasked score becomes a weight of 1 after softmax. An answer of 0 assumes a token cannot attend to itself; any fraction forgets that the weights in a row sum to 1 over the unmasked positions."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "The variance of the dot product equals d_k, so the standard deviation is sqrt(d_k): sqrt(16) = 4 and sqrt(64) = 8. Option a scales the standard deviation linearly with d_k, b treats the spread as independent of d_k, and c confuses variance with standard deviation."
+    },
+    {
+      "id": "q5",
+      "answer": "4 by 7",
+      "accepted": ["4x7", "4 x 7", "4 × 7", "(4, 7)", "4 rows by 7 columns", "4 rows and 7 columns"],
+      "rationale": "There is one row per query and one column per key: the 4 queries come from the French decoder and the 7 keys from the English encoder output. An answer of 7 by 7 or 4 by 4 treats it as self-attention; 7 by 4 swaps which side supplies the queries."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "e^(minus infinity) = 0, so the masked token gets weight 0, and the two equal scores split the remaining weight evenly: 0.5 each. Option b ignores the mask (M1), c skips the normalization, and d gives the masked token a negative weight, as if it were subtracted out (M1).",
+      "distractors": {"b": "M1", "d": "M1"}
+    }
+  ]
+}

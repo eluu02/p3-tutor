@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: equal scores give each value a weight of 0.25, so the output is the plain average of the four values. One wording fix: the 0.25 is the weight after softmax, and the scores belong to the query-key pairs, not to the value vectors. Keeping score (before softmax) and weight (after) apart will help when you read masking and scaling code."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. With d_k = 1024 the unscaled dot products have variance about 1024, so scores spread to roughly plus or minus 32, softmax goes nearly one-hot, and its gradients become tiny. Dividing by sqrt(d_k) = 32 puts the variance back at about 1."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": null,
+      "feedback": "The answer is 3, not 2. The causal mask blocks only the positions after token 3, so token 3 attends to tokens 1, 2 and itself. You counted the tokens before it but left out token 3 itself: in self-attention a token's own key is always one of the keys it scores, and on the diagonal of the mask it stays unmasked."
+    },
+    {
+      "id": "q4",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the score matrix is n by n, so 2n tokens give (2n)^2 = 4n^2 entries, four times as many. This is why the cost per layer is O(n^2 d) and why long contexts are expensive."
+    },
+    {
+      "id": "q5",
+      "verdict": "wrong",
+      "misconception": null,
+      "feedback": "The queries come from the French side. In encoder-decoder attention the decoder asks the questions and the encoder answers them: the queries come from the decoder, which writes the French, while the keys and values come from the encoder's reading of the English. Because English is the input, it supplies the keys and values; the decoder uses its queries to look up the parts of the English it needs for the next French word."
+    },
+    {
+      "id": "q6",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: 0.5 * [2, 4] + 0.5 * [6, 0] + 0 * [100, 100] = [4, 2]. Notice that the huge third value adds nothing because its weight is 0, which is exactly how a masked token drops out."
+    }
+  ],
+  "summary": "You got 4 of 6. You have the core computation down: equal weights give an average, the output is a weighted sum, scaling keeps the softmax from saturating, and the cost grows with n squared. The two misses are both about the decoder: a token always attends to itself, even under the causal mask, and in encoder-decoder attention the queries come from the decoder, with the keys and values from the encoder. Next step: reread the section 'Self-attention, masking and heads' in lesson 0001, then draw the 5 by 5 causal mask and shade which cells stay unmasked."
+}

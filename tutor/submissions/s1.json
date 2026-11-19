@@ -1,0 +1,12 @@
+{
+  "quiz": "0001",
+  "learner": "Ethan",
+  "answers": [
+    {"id": "q1", "response": "Each value vector has the same score of 0.25 so each is weighted the same."},
+    {"id": "q2", "response": "c"},
+    {"id": "q3", "response": "2"},
+    {"id": "q4", "response": "b"},
+    {"id": "q5", "response": "English supplies the queries since it is the input language."},
+    {"id": "q6", "response": "a"}
+  ]
+}

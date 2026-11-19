@@ -1,0 +1,61 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "Scaled dot-product attention",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O1",
+      "stem": "In scaled dot-product attention, a query happens to have exactly the same score with each of four keys. In one phrase, what is that query's output in terms of the four value vectors?"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A team removes the division by the square root of d_k from attention in a model whose keys have d_k = 1024, and training stalls. Which explanation fits best?",
+      "options": [
+        {"id": "a", "text": "The attention weights in each row stop summing to one"},
+        {"id": "b", "text": "The scores shrink toward zero, so the weights become uniform"},
+        {"id": "c", "text": "Large scores make softmax nearly one-hot, so gradients become tiny"},
+        {"id": "d", "text": "The output vectors grow to 1024 times their usual length"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O1",
+      "stem": "A decoder processes a sequence of 5 tokens with the standard causal mask in its self-attention. Counting token 3 itself, on how many tokens' value vectors can token 3's output depend? Give a number."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "In one self-attention layer, the sequence length grows from n to 2n tokens while the key dimension stays the same. How does the number of entries in the score matrix QK^T change?",
+      "options": [
+        {"id": "a", "text": "It doubles, growing in step with the sequence length"},
+        {"id": "b", "text": "It quadruples, since every token scores every token"},
+        {"id": "c", "text": "It stays the same, since it depends only on d_k"},
+        {"id": "d", "text": "It grows eightfold, since it scales with the cube of n"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O1",
+      "stem": "A transformer translates English into French. In its encoder-decoder attention, which sentence supplies the queries, English or French? Answer with the language and a reason in one sentence."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "After softmax, one query's attention weights over three tokens are [0.5, 0.5, 0]. The tokens' value vectors are [2, 4], [6, 0] and [100, 100]. What is the query's output?",
+      "options": [
+        {"id": "a", "text": "[4, 2]"},
+        {"id": "b", "text": "[6, 0]"},
+        {"id": "c", "text": "[36, 34.67]"},
+        {"id": "d", "text": "[8, 4]"}
+      ]
+    }
+  ]
+}

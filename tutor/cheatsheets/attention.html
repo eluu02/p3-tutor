@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: scaled dot-product attention</title>
+  <style>
+    :root { --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4; --accent: #9a4517; --code-bg: #f3efe6;
+            --serif: Charter, "Iowan Old Style", Cambria, Georgia, serif; --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; --code-bg: #23211e; } }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.5; }
+    main { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; font-family: var(--sans); margin-top: 1.5rem; }
+    a { color: var(--accent); }
+    .formula { font-family: var(--mono); text-align: center; background: var(--code-bg); border-radius: 6px; padding: 0.7rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--rule); }
+    th { font-family: var(--sans); font-size: 0.78rem; text-transform: uppercase; color: var(--muted); }
+    @media print { :root { --bg: #fff; --text: #000; --accent: #000; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Scaled dot-product attention</h1>
+  <p class="formula">Attention(Q, K, V) = softmax( Q K<sup>T</sup> / &radic;d<sub>k</sub> ) V</p>
+  <h2>The four moves</h2>
+  <ol>
+    <li>Score: Q K<sup>T</sup>, every query dotted with every key (n &times; n).</li>
+    <li>Scale: divide by &radic;d<sub>k</sub>, so scores keep unit variance.</li>
+    <li>Normalize: softmax each row; weights are positive and sum to 1.</li>
+    <li>Mix: multiply by V; each output is a weighted average of values.</li>
+  </ol>
+  <h2>Key facts</h2>
+  <table>
+    <tr><th>Item</th><th>Fact</th></tr>
+    <tr><td>Self-attention</td><td>Q, K, V are three learned projections of the same sequence</td></tr>
+    <tr><td>Decoder mask</td><td>future scores set to &minus;&infin; before softmax, so their weights are 0</td></tr>
+    <tr><td>Multi-head</td><td>d<sub>k</sub> = d<sub>v</sub> = d<sub>model</sub> / h (paper: 512 / 8 = 64)</td></tr>
+    <tr><td>Cost per layer</td><td>O(n<sup>2</sup>&middot;d); path length between any two tokens O(1)</td></tr>
+  </table>
+  <p>Lesson: <a href="../lessons/0001-attention-in-transformers.html">How attention works in transformers</a>. Source: <a href="https://arxiv.org/html/1706.03762v7">Vaswani et al. (2017)</a>.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "the plain average of the four values",
+      "accepted": ["the average of the four value vectors", "the mean of the values", "the mean of the four value vectors", "an equally weighted average of the values", "the average of the values", "each value weighted 0.25, summed", "the sum of the values divided by four"],
+      "rationale": "Equal scores give equal softmax weights of 0.25 each, so the output is the unweighted mean of the four values. An answer naming a single value shows M4 (attention as a hard pick); 'the sum of the values' without dividing is partial."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "Dot products of independent unit-variance components have variance d_k, so with d_k = 1024 scores spread to about plus or minus 32; softmax saturates to nearly one-hot and its gradients become extremely small (Vaswani et al., 3.2.1).",
+      "distractors": {"a": "M2", "b": "M3"}
+    },
+    {
+      "id": "q3",
+      "answer": "3",
+      "accepted": ["three", "3 tokens", "tokens 1, 2 and 3"],
+      "rationale": "The causal mask sets scores for positions after 3 to minus infinity, so their weights are exactly 0; tokens 1, 2 and 3 keep positive weights. An answer of 5 ignores the mask (M1); an answer of 2 forgets that a token attends to itself."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "QK^T is n by n, so going to 2n gives (2n)^2 = 4n^2 entries: four times as many. This is the O(n^2 d) cost per layer.",
+      "distractors": {"a": "M5", "c": "M5"}
+    },
+    {
+      "id": "q5",
+      "answer": "French, because the queries come from the decoder, which produces the French output",
+      "accepted": ["French", "French, the decoder supplies the queries", "French, since queries come from the decoder", "the French sentence, from the decoder", "French, the decoder side"],
+      "rationale": "In encoder-decoder attention the queries come from the previous decoder layer and the keys and values from the encoder output (Vaswani et al., 3.2.3); the decoder writes French. 'French' with no reason or a wrong reason is partial; 'English' swaps the roles of encoder and decoder."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "0.5 * [2, 4] + 0.5 * [6, 0] + 0 * [100, 100] = [1, 2] + [3, 0] = [4, 2]. Option b picks one value outright (M4), c averages all three values ignoring the weights, and d adds the values without the weights.",
+      "distractors": {"b": "M4"}
+    }
+  ]
+}

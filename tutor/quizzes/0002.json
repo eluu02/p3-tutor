@@ -1,0 +1,61 @@
+{
+  "id": "0002",
+  "objective": "O1",
+  "title": "Attention in the decoder: masks and cross-attention",
+  "items": [
+    {
+      "id": "q1",
+      "type": "short",
+      "objective": "O1",
+      "stem": "A decoder's self-attention runs on 4 tokens with the standard causal mask, giving a 4 by 4 matrix of attention weights after softmax. How many of its 16 entries are nonzero? Give a number."
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A transformer summarizes articles: its encoder reads the article and its decoder writes the summary. In its encoder-decoder attention, where do the keys and values come from?",
+      "options": [
+        {"id": "a", "text": "Keys from the decoder, values from the encoder output"},
+        {"id": "b", "text": "Both from the decoder's previous layer, like the queries"},
+        {"id": "c", "text": "Both from the encoder's output, the read article"},
+        {"id": "d", "text": "Keys from the encoder output, values from the decoder"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O1",
+      "stem": "In a decoder's masked self-attention, consider the very first token of the sequence. After softmax, what is the weight it puts on its own value vector? Give a number."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "Query and key components are independent with mean 0 and variance 1. When d_k grows from 16 to 64, what happens to the standard deviation of an unscaled query-key dot product?",
+      "options": [
+        {"id": "a", "text": "It grows from 4 to 16"},
+        {"id": "b", "text": "It stays at about 4"},
+        {"id": "c", "text": "It grows from 16 to 64"},
+        {"id": "d", "text": "It grows from 4 to 8"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O1",
+      "stem": "A translation transformer's encoder has read an English sentence of 7 tokens, and its decoder has produced 4 French tokens so far. In the encoder-decoder attention, what is the shape of the score matrix QK^T? Answer as rows by columns."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "After scaling and masking, one query's scores over three tokens are [2, 2, minus infinity]. What are its attention weights after softmax?",
+      "options": [
+        {"id": "a", "text": "[0.5, 0.5, 0]"},
+        {"id": "b", "text": "[0.33, 0.33, 0.33]"},
+        {"id": "c", "text": "[1, 1, 0]"},
+        {"id": "d", "text": "[0.5, 0.5, -1]"}
+      ]
+    }
+  ]
+}
