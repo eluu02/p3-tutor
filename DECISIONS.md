@@ -26,7 +26,7 @@ They are about what you chose and what you saw, and the Builder and the Guide ne
 Of everything you changed while building `c1-skills`, which one change to a skill made the biggest difference, and how do you know?
 Name the round, and give the evidence: a rating that moved, a check in `REPORT.md` that moved, or a quote from an output before and after.
 
-TODO: your answer to prompt 1.
+The new quiz skill in round three mattered most which added an even split of multiple choice and short answer questions. The result of this was ambiguous items dropping from 0.3 to 0, and key agreement increasing from 0.93 to 1. In the baseline runs, the quiz questions drifted between three and five multiple choice questions out of six, while the c1-skills run gave exactly three and three. This difference mainly came from the skill as I have no preferences listed for quiz formats.
 
 ---
 
